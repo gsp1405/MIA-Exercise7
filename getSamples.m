@@ -36,7 +36,7 @@ end
 %
 x = [ x( :, :, 1 ); x( :, :, 2 ) ];
 t = t( : );
-rowAndColNumbers = [ rowAndColNumbers( :, :, 1); rowAndColNumbers( :, :, 2); ]
+rowAndColNumbers = [ rowAndColNumbers( :, :, 1); rowAndColNumbers( :, :, 2); ];
 
 %
 x = x( 1 : numberOfSamples, : );
