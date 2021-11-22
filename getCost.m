@@ -10,10 +10,15 @@ function C = getCost(theta, ImTrain, ImTest, N)
     if (nargin == 3)
         C = -sum(ImTest .* log(ImSegm) + ...
             (1 - ImTest) .* log(1 - ImSegm), "all");
-    else
+    elseif (length(N) == 1)
         randSam = randperm(length(ImTrain(:)), N);
         ImSegmVec = ImSegm(randSam);
         ImTestVec = ImTest(randSam);
+        C = -sum(ImTestVec .* log(ImSegmVec) + ...
+            (1 - ImTestVec) .* log(1 - ImSegmVec), "all");
+    else
+        ImSegmVec = ImSegm(N);
+        ImTestVec = ImTest(N);
         C = -sum(ImTestVec .* log(ImSegmVec) + ...
             (1 - ImTestVec) .* log(1 - ImSegmVec), "all");
     end 
