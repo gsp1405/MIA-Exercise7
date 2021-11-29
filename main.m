@@ -185,7 +185,7 @@ end
 %%
 ImTrainRes = zeros(size(ImTrain));
 for i = 1:6
-    ImTrainRes = ImTrainRes + beta(i) * getAdap(w, ImTrain, i, 1);
+    ImTrainRes = ImTrainRes + beta(i) * getAdap(w, ImTrain, i, 8);
 end
 ImTrainRes = sigmoid(ImTrainRes);
 figure()
@@ -193,7 +193,7 @@ imshow(ImTrainRes)
 %%
 ImTestRes = zeros(size(ImTest));
 for i = 1:6
-    ImTestRes = ImTestRes + beta(i) * getAdap(w, ImTest, i, 1);
+    ImTestRes = ImTestRes + beta(i) * getAdap(w, ImTest, i, 8);
 end
 ImTestRes = sigmoid(ImTestRes);
 rgb5(:, :, 1) = ImTestRes <= 0.5;
